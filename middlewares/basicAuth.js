@@ -11,7 +11,6 @@ async function basicAuth(req, res, next) {
     let encodedData = basicAuth.split(" ")[1]; // `34$%#$%$#$%@@RR@#$C$`
     let decodedData = base64.decode(encodedData); // username:password
     let [email, password] = decodedData.split(":");
-
     client
       .query(`SELECT * FROM users WHERE email ='${email}'`)
       .then(async (user) => {

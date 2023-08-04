@@ -6,8 +6,8 @@ const app = express();
 require("dotenv").config();
 const { PORT } = require("./config");
 const client = require("./client");
-const axios = require("axios");
 const userRouter = require("./routes/user.routes");
+const weatherRouter = require("./routes/weather.routes");
 
 // ================== Global Middlewares
 
@@ -17,6 +17,7 @@ app.use(express.json());
 // ================== Routes Middlewares
 
 app.use("/user", userRouter);
+app.use("/weather", weatherRouter);
 
 // ================== Error_Handlers Middlewares
 

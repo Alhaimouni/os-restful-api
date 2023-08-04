@@ -3,11 +3,11 @@
 function acl(capability) {
   return function aclMiddleware(req, res, next) {
     try {
-      let includeOrNot = req.user.actions.includes(capability);
-      if (includeOrNot) {
+      let auth = req.user.role == capability;
+      if (auth) {
         next();
       } else {
-        res.status(403).send(`Access Denied`);
+        res.status(403).send("Not Authorized");
       }
     } catch (err) {
       next(`Error inside acl middleware :${err}`);

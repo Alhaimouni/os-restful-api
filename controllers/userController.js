@@ -1,4 +1,4 @@
-// const catcher = require('../tryCatcher/tryCatcher');
+
 const client = require("../client");
 
 module.exports = function (type, payload) {
@@ -8,7 +8,7 @@ module.exports = function (type, payload) {
         try {
           console.log(req.body);
           let sql = ``;
-          if (req.body.role) {
+          if (req.body.role && req.body.role == "admin") {
             sql = `INSERT INTO users (email, password, role)
             VALUES ('${req.body.email}', '${req.body.password}', 'admin');`;
           } else {
@@ -25,7 +25,7 @@ module.exports = function (type, payload) {
     case "login":
       return (req, res, next) => {
         try {
-          res.status(200).send(req.signedUser)
+          res.status(200).send(req.signedUser);
         } catch (e) {
           next(e);
         }
