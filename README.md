@@ -1,6 +1,10 @@
 # os-restful-api
 Welcome to this API :
+
+---
+
 Routes :
+<pre>
 {
 "method": "POST",
 "url": "https://opensooq-web-api.onrender.com/user/signup  => to create new user",
@@ -50,3 +54,7 @@ Routes :
 "comment": "test"
 }
 }
+
+  
+</pre>
+
