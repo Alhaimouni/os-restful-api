@@ -19,6 +19,61 @@ app.use(express.json());
 app.use("/user", userRouter);
 app.use("/weather", weatherRouter);
 
+// ================== Welcoming Route
+
+app.get('/',(req,res)=>{
+  res.status(200).send(`
+  Welcome to opensooq stask resful API.
+  Routes :
+    {
+    method: POST
+    url: https://opensooq-web-api.onrender.com/user/signup  => to create new user
+    bodyexample :{
+      "email": "user@user.com",
+      "password": "user"
+    }
+  },
+  {
+    method: POST
+    url: https://opensooq-web-api.onrender.com/user/login  => login 
+    header :  basic-auth
+  },
+  {
+    method: GET
+    url: https://opensooq-web-api.onrender.com/weather?lon=-179&lat=90  => get all data based on cordination
+  },
+  {
+    method: GET
+    url: https://opensooq-web-api.onrender.com/weather/fav  => get all fav data for the connected user
+  },
+  {
+    method: GET
+    url: https://opensooq-web-api.onrender.com/weather/fav  => admin route to get all fav data 
+  },
+  {
+    method: POST
+    url: https://opensooq-web-api.onrender.com/weather/fav  => add to fav
+    bodyexample :{
+      "weather": "fire",
+      "visibility": "12000",
+      "comment": "oman-city"
+  }
+  },
+  {
+    method: DELETE
+    url: https://opensooq-web-api.onrender.com/weather/fav/id => delete fav record by the connected user
+  },
+  {
+    method: DELETE
+    url: https://opensooq-web-api.onrender.com/weather/fav/admin/id => delete fav record by the admin
+  },{
+    method: PUT
+    url: https://opensooq-web-api.onrender.com/weather/fav/id => update the selected fav comment by the admin
+    bodyexample:{
+      "comment":"add the comment"
+  }
+  }`)
+})
 // ================== Error_Handlers Middlewares
 
 app.use(require("./error_handlers/404"));
