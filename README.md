@@ -1,1 +1,52 @@
 # os-restful-api
+Welcome to this API :
+Routes :
+{
+"method": "POST",
+"url": "https://opensooq-web-api.onrender.com/user/signup  => to create new user",
+"bodyexample": {
+"email": "user@user.com",
+"password": "user"
+}
+},
+{
+"method": "POST",
+"url": "https://opensooq-web-api.onrender.com/user/login  => login ",
+"header": "basic-auth"
+},
+{
+"method": "GET",
+"url": "https://opensooq-web-api.onrender.com/weather?lon=-179&lat=90  => get all data based on cordination"
+},
+{
+"method": "GET",
+"url": "https://opensooq-web-api.onrender.com/weather/fav  => get all fav data for the connected user"
+},
+{
+"method": "GET",
+"url": "https://opensooq-web-api.onrender.com/weather/fav  => admin route to get all fav data "
+},
+{
+"method": "POST",
+"url": "https://opensooq-web-api.onrender.com/weather/fav  => add to fav",
+"bodyexample": {
+"weather": "fire",
+"visibility": "12000",
+"comment": "oman-city"
+}
+},
+{
+"method": "DELETE",
+"url": "https://opensooq-web-api.onrender.com/weather/fav/id => delete fav record by the connected user"
+},
+{
+"method": "DELETE",
+"url": "https://opensooq-web-api.onrender.com/weather/fav/admin/id => delete fav record by the admin"
+},
+{
+"method": "PUT",
+"url": "https://opensooq-web-api.onrender.com/weather/fav/id => update the selected fav comment by the admin",
+"bodyexample": {
+"comment": "test"
+}
+}
