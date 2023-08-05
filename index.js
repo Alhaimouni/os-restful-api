@@ -22,7 +22,7 @@ app.use("/weather", weatherRouter);
 // ================== Welcoming Route
 
 app.get('/',(req,res)=>{
-  res.status(200).send(`
+  res.status(200).json(`
   Welcome to opensooq stask resful API.
   Routes :
     {
